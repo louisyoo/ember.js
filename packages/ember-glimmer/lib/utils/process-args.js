@@ -51,7 +51,9 @@ class SimpleArgs {
       let ref = namedArgs.get(name);
       let value = attrs[name];
 
-      if (ref[UPDATE]) {
+      if (typeof value === 'function') {
+        attrs[name] = value;
+      } else if (ref[UPDATE]) {
         attrs[name] = new MutableCell(ref, value);
       }
 

@@ -1016,7 +1016,7 @@ moduleFor('Helpers test: closure {{action}}', class extends RenderingTest {
     this.render('{{outer-component}}');
 
     this.runTask(() => {
-      innerComponent.fireAction();
+      actualReturnedValue = innerComponent.fireAction();
     });
 
     this.assert.equal(actualFirst, first, 'first argument is correct');
